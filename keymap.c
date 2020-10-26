@@ -37,49 +37,58 @@ enum custom_keycodes {
 
 #define LO_SPC LT(_LOWER, KC_SPC)
 #define RA_ENT LT(_RAISE, KC_ENT)
-#define WIN_V LGUI(KC_V)
-#define L_DESC LGUI(LCTL(KC_LEFT))
-#define R_DESC LGUI(LCTL(KC_RGHT))
-#define P_TOYS LGUI(LALT(KC_SPC))
-#define M_TASK LGUI(KC_TAB)
-#define M_CAPS MO(_CAPS)
-#define M_FN MO(_FN)
+#define LO_F13 LT(_LOWER, KC_F13)
+#define RA_F14 LT(_RAISE, KC_F14)
+#define CTL_SPC CTL_T(KC_SPC)
+#define SFT_ENT SFT_T(KC_ENT)
 #define CTL_F13 CTL_T(KC_F13)
 #define SFT_F14 SFT_T(KC_F14)
+#define WIN_V LGUI(KC_V)
+#define L_DESK LGUI(LCTL(KC_LEFT))
+#define R_DESK LGUI(LCTL(KC_RGHT))
+#define AD_DESK LGUI(LCTL(KC_D))
+#define CL_DESK LGUI(LCTL(KC_F4))
+#define P_TOYS LGUI(LALT(KC_SPC))
+#define M_TASK LGUI(KC_TAB)
+#define W_UP LGUI(KC_UP)
+#define W_DOWN LGUI(KC_DOWN)
+#define W_LEFT LGUI(KC_LEFT)
+#define W_RGHT LGUI(KC_RGHT)
+#define M_CAPS MO(_CAPS)
+#define M_FN MO(_FN)
 #define SFT_TAB LSFT(KC_TAB)
-#define CTL_ENT LCTL(KC_ENT)
-#define SFT_ENT LSFT(KC_ENT)
-#define ALT_ENT LALT(KC_ENT)
-#define CTL_SPC LCTL(KC_SPC)
-#define SFT_SPC LSFT(KC_SPC)
-#define ALT_SPC LALT(KC_SPC)
+#define C_RBRC LCTL(KC_RBRC)
+#define TX_UP LCTL(LALT(LSFT(KC_UP)))
+#define TX_DOWN LCTL(LALT(LSFT(KC_DOWN)))
+#define TX_RGHT LCTL(LALT(LSFT(KC_RIGHT)))
+#define TX_LEFT LCTL(LALT(LSFT(KC_LEFT)))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT(
   //,-----------------------------------------------------|   |--------------------------------------------------------------------------------.
-     KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS,  KC_EQL, KC_BSLS,  KC_GRV,
+     KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_MINS, KC_EQL, KC_GRV,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------+--------|
-     KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC, KC_RBRC,KC_DEL,
+     KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_LBRC,  KC_RBRC, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------|
      KC_LCTL,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
-     KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_LSFT, M_FN,
+     KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_BSPC, M_FN,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
-               KC_LALT, KC_F13, LOWER,  KC_SPC,               KC_ENT,  RAISE,          KC_F14, KC_LGUI
+               KC_LCTL, KC_LALT, LOWER,  KC_SPC,               KC_LSFT,  KC_LSFT,          KC_APP, KC_LGUI
           //`---------------------------------------------|   |--------------------------------------------'
   ),
 
   [_LOWER] = LAYOUT(
   //,-----------------------------------------------------|   |--------------------------------------------------------------------------------.
-      XXXXXXX, KVM_1,  KVM_2,   KVM_3,   KVM_4,   XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  XXXXXXX,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------+--------|
-      KC_ENT, KC_ESC, KC_PGUP, KC_UP,   KC_PGDN,   XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+      XXXXXXX, XXXXXXX, KC_PGUP, KC_UP,   KC_PGDN,  XXXXXXX,    XXXXXXX, XXXXXXX,  XXXXXXX,   XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------|
-      KC_CAPS, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,     XXXXXXX, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, XXXXXXX, XXXXXXX,
+      KC_CAPS, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,     XXXXXXX, KC_LALT, KC_LSFT, KC_LCTL, KC_LGUI, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, KC_BSPC, KC_DEL, WIN_V, XXXXXXX,      XXXXXXX, L_DESC,  M_TASK,  R_DESC, XXXXXXX, _______, _______,
+      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, _______, _______,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
-               _______, _______, _______, _______,              _______, _______,          _______, _______ 
+               _______, _______, _______, _______,              KC_F13, KC_F14,          _______, _______ 
           //`---------------------------------------------|   |--------------------------------------------'
   ),
 
@@ -89,11 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------+--------|
       KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,KC_RPRN, KC_UNDS,   XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------|
-      KC_GRV, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, _______,
+      KC_GRV, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DQT, _______,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
-      _______, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, KC_PIPE,     KC_BSLS, XXXXXXX, XXXXXXX,   XXXXXXX,   KC_PLUS, KC_EQL, _______,
+      KC_COLN, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, KC_PIPE,     KC_BSLS, KC_PLUS, KC_EQL,KC_LT,   KC_GT,   KC_QUES,    _______,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
-               _______, KC_LGUI, KC_LCTL, _______,              _______, _______,          _______, _______ 
+               _______, _______, _______, _______,              _______, _______,          _______, _______ 
           //`---------------------------------------------|   |--------------------------------------------'
   ),
 
@@ -117,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, KC_END, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_TAB, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------|
-      _______, KC_HOME, XXXXXXX, KC_DEL, KC_RGHT,  KC_ESC,     KC_BSPC, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI, XXXXXXX, XXXXXXX,
+      _______, KC_HOME, XXXXXXX, KC_DEL, KC_RGHT,  KC_ESC,     KC_BSPC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, C_RBRC, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LEFT,     KC_DOWN, KC_ENT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
@@ -127,13 +136,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FN] = LAYOUT(
   //,-----------------------------------------------------|   |--------------------------------------------------------------------------------.
-      _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12, KC_INS,   KC_DEL,
+      _______, KVM_1,   KVM_2,   KVM_3,   KVM_4,   KC_F5,       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12, KC_INS,   KC_DEL,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------+--------|
-     KC_CAPS, _______, _______, _______, _______, _______,     _______, _______, KC_PSCR, KC_SLCK, KC_PAUS, KC_UP, _______, KC_BSPC,
+     KC_CAPS, XXXXXXX,  XXXXXXX,   TX_UP,   XXXXXXX, _______,     _______, _______, KC_PSCR, KC_SLCK, KC_PAUS, AD_DESK, M_TASK, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,     _______, _______, KC_HOME, KC_PGUP, KC_LEFT, KC_RGHT, _______,
+      _______, _______, TX_LEFT,  TX_DOWN,  TX_RGHT, _______,     _______, _______, XXXXXXX, XXXXXXX, L_DESK, R_DESK, _______,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,     _______, _______,KC_END, KC_PGDN, KC_DOWN, _______, _______,
+      _______, _______, _______, _______, _______, _______,     _______, _______,XXXXXXX, XXXXXXX, W_DOWN, _______, _______,
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------+--------|
                _______, _______, _______, _______,              _______, _______,          KC_STOP, KC_APP 
           //`---------------------------------------------|   |--------------------------------------------'
